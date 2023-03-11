@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Tourist Spot</title>
+</head>
+<body>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1><i class='bx bxs-plane-alt' ></i>Safe Travel</h1>
+        </div>
+        <ul>
+            <li><a href="/dashboard" class="side-text"><i class='bx bxs-dashboard' ></i>&nbsp; <span>Dashboard</span> </a></li>
+            <li><a href="#" class="side-text"><i class='bx bxs-location-plus'></i></i>&nbsp;<span>View Tourist Spot</span></a></li>
+            <li><a href="/dashboard/dashboardRestaurant" class="side-text"><i class='bx bx-restaurant' ></i></i>&nbsp;<span>View Restaurants</span></a></li>
+            <li><a href="/dashboard/dashboardHotel" class="side-text"><i class='bx bxs-hotel' ></i></i>&nbsp;<span>View Rooms/Hotel</span></a></li>
+            <li><a href="" class="side-text"><i class='bx bxs-bell-minus' ></i></i>&nbsp;<span>Emergency Services</span></a> </li>
+            <li><a href="/dashboard/dashboardFavorite" class="side-text"><i class='bx bxs-check-square' ></i>&nbsp;<span>Favorite</span></a> </li>
+            <li><a href="" class="side-text"><i class='bx bx-history' ></i>&nbsp; <span>Profile</span></a></li>
+            <li><a href="" class="side-text"><i class='bx bxs-help-circle' ></i>&nbsp;<span>Support/Help</span></a> </li>
+            <li><form action="/logout" method="GET"><button type="submit" id="d-button" class="side-text"><i class='bx bxs-log-out' ></i>&nbsp;<span>Logout</form></span></a> </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Search..">
+                    <button type="submit"><i class='bx bx-search-alt-2' ></i></button>
+                </div>
+                <div class="user">
+                    <p>Hello <%=user.firstName%></p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card2">
+                    <div class="box">
+                        <h1>Viewing Tourist Spots</h1>
+                    </div>
+                    
+                </div>
+                <!-- <div class="card2">
+                    <div class="box">
+                        You can leave a comment in this section once you've selected a place.
+                        <form>
+                            <label>Leave a comment:</label>
+                            <input type="text" name="comment" id="comment">
+                        </form>
+                    </div>
+
+                </div> -->
+               
+            </div>
+            <div class="content-2">
+                <div class="recent-payments">
+                    <div class="title">
+                        <h2>Tourist Spots</h2>
+                    </div>
+                    <table class = "table">
+                        <tr>
+                            <th>Location</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        
+                            <% for(let i=0; i<spots.length; i++) {%>
+                                <tr>
+                                <td><%= spots[i].Location %></td>
+                                <td><%= spots[i].Name %></td>
+                                <td><a href="/dashboard/dashboardSpots/<%=spots[i]._id%>">Click here</a></td>
+                                <td><button>Add to Favorite</button></td>
+                                </tr>
+                             <% } %>
+                        
+                    </table>
+                </div>
+                <!-- <div class="new-students">
+                    <div class="title">
+                        <h2>Comments</h2>
+                    </div>
+                    <div class="comment">
+                        Comments will be displayed here once you've selected a place.
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.comment{
+    padding: 5px;
+    margin: 10px;
+}
+body {
+    min-height: 100vh;
+}
+
+#d-button{
+    background-color:#0073e5;
+    border-color: #0073e5 transparent;
+    width: 200px;
+    height: 50px;
+    text-align: left;
+}
+
+.table{
+    text-decoration: none;
+    color: #000;
+}
+
+#d-button:hover {
+    color: #000;
+    background: white;
+    border-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+.side-text{
+    color: #000;
+    margin-top: 10px;
+    padding-left: 2px;
+    padding-top: 10px;
+    font-size: 18px;
+}
+li {
+    list-style: none;
+}
+h1,
+h2 {
+    color: #000;
+}
+h3 {
+    color: #999;
+}
+.btn {
+    background: #f05462;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+}
+.btn:hover {
+    color: #f05462;
+    background: white;
+    padding: 3px 8px;
+    border: 2px solid #f05462;
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
+}
+table {
+    padding: 10px;
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+.side-menu {
+    position: fixed;
+    background: #0073e5;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.side-menu li {
+    font-size: 24px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.side-menu li:hover {
+    background: white;
+    color: #f05462;
+}
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: #f1f1f1;
+}
+.container .header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 10vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.container .header .nav {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.container .header .nav .search {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+}
+.container .header .nav .search input[type=text] {
+    border: none;
+    background: #f1f1f1;
+    padding: 10px;
+    width: 50%;
+}
+.container .header .nav .search button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .header .nav .search button img {
+    width: 30px;
+    height: 30px;
+}
+.container .header .nav .user {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .header .nav .user img {
+    width: 40px;
+    height: 40px;
+}
+.container .header .nav .user .img-case {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+.container .header .nav .user .img-case img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    background: #f1f1f1;
+}
+.container .content .cards {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.container .content .cards .card {
+    width: 500px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
+    display: flex;
+    align-items: flex-start;
+    /* justify-content: space-around; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container .content .cards .card2 {
+    width: 500px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container .content .content-2 {
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.container .content .content-2 .recent-payments {
+    min-height: 100vh;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+.container .content .content-2 .new-students {
+    flex: 2;
+    background: white;
+    min-height: 100vh;
+    margin: 0 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+.container .content .content-2 .new-students table td:nth-child(1) img {
+    height: 40px;
+    width: 40px;
+}
+@media screen and (max-width: 1050px) {
+    .side-menu li {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 940px) {
+    .side-menu li span {
+        display: none;
+    }
+    .side-menu {
+        align-items: center;
+    }
+    .side-menu li img {
+        width: 40px;
+        height: 40px;
+    }
+    .side-menu li:hover {
+        background: #f05462;
+        padding: 8px 38px;
+        border: 2px solid white;
+    }
+}
+@media screen and (max-width:536px) {
+    .brand-name h1 {
+        font-size: 16px;
+    }
+    .container .content .cards {
+        justify-content: center;
+    }
+    .side-menu li img {
+        width: 30px;
+        height: 30px;
+    }
+    .container .content .content-2 .recent-payments table th:nth-child(2),
+    .container .content .content-2 .recent-payments table td:nth-child(2) {
+        display: none;
+    }
+}
+</style>
+</body>
+</html>
