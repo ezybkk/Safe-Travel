@@ -59,12 +59,20 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>Cebu</td>
-                            <td>Sample</td>
-                            <td><a href="#">View Details</a></td>
-                            <td><button>Delete</button></td>
-                        </tr>
+                        <% for( let index = 0; index < user.favorite.length; index++ ) { %>
+                            <% if (user.favorite[index].category=='Spots') { %>
+                                <tr>
+                                    <td><%=user.favorite[index].location%></td>
+                                    <td><%=user.favorite[index].name %></td>
+                                    <td><a href="/dashboard/dashboardSpots/<%=user.favorite[index].id%>">View Details</a></td>
+                                    <td><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                        <button>Delete</button>
+                                    </form></td>
+                                </tr>
+                            <% } %>
+                            
+                        <% } %>
+                        
                         </table>
                 </div>
                 <div class="recent-payments">
@@ -78,13 +86,19 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>Cebu</td>
-                            <td>Sample</td>
-                            <td><a href="#">View Details</a></td>
-                            <td><button>Delete</button></td>
+                        <% for( let index = 0; index < user.favorite.length; index++ ) { %>
+                            <% if (user.favorite[index].category=='Restaurants') { %>
+                                <tr>
+                                    <td><%=user.favorite[index].location%></td>
+                                    <td><%=user.favorite[index].name %></td>
+                                    <td><a href="/dashboard/dashboardRestaurant/<%=user.favorite[index].id%>">View Details</a></td>
+                                    <td><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                        <button>Delete</button>
+                                    </form></td>
+                                </tr>
+                            <% } %>
                             
-                        </tr>
+                        <% } %>
                         </table>
                     
                 </div>
@@ -99,12 +113,22 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>Cebu</td>
-                            <td>Sample</td>
-                            <td><a href="#">View Details</a></td>
-                            <td><button>Delete</button></td>
-                        </tr>
+                        <% for( let index = 0; index < user.favorite.length; index++ ) { %>
+                            <% if (user.favorite[index].category=='Hotels') { %>
+                                <tr>
+                                    <td><%=user.favorite[index].location%></td>
+                                    <td><%=user.favorite[index].name %></td>
+                                    <td><a href="/dashboard/dashboardHotel/<%=user.favorite[index].id%>">View Details</a></td>
+                                    <td>
+                                        <form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                            <button>Delete</button>
+                                        </form>
+                                        
+                                    </td>
+                                </tr>
+                            <% } %>
+                            
+                        <% } %>
                         </table>
                 </div>
             </div>

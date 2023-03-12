@@ -75,7 +75,10 @@
                                 <td><%= restaurants[i].Location %></td>
                                 <td><%= restaurants[i].Name %></td>
                                 <td><a href="/dashboard/dashboardRestaurant/<%=restaurants[i]._id%>">Click here</a></td>
-                                <td><button>Add to Favorite</button></td>
+                                <td>
+                                    <form action="/dashboard/dashboardFavorites/<%=restaurants[i]._id%>/Restaurants/<%=restaurants[i].Location%>/<%=restaurants[i].Name%>" method="POST"><button>Add to Favorite</button>
+                                    </form>
+                                </td>
                                 </tr>
                              <% } %>
                         

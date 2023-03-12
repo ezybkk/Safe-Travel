@@ -75,7 +75,11 @@
                                 <td><%= spots[i].Location %></td>
                                 <td><%= spots[i].Name %></td>
                                 <td><a href="/dashboard/dashboardSpots/<%=spots[i]._id%>">Click here</a></td>
-                                <td><button>Add to Favorite</button></td>
+                                <td>
+                                    <form action="/dashboard/dashboardFavorites/<%=spots[i]._id%>/Spots/<%=spots[i].Location%>/<%=spots[i].Name%>" method="POST"><button>Add to Favorite</button>
+                                    </form>
+                                </td>
+                                    
                                 </tr>
                              <% } %>
                         
