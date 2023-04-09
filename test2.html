@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Profile</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Profile</h1>
+      <div class="profile-info">
+        <p><strong>First Name:</strong> Jane</p>
+        <p><strong>Last Name:</strong> Doe</p>
+        <p><strong>Email:</strong> jane.doe@example.com</p>
+        <button id="change-password">Change Password</button>
+        <button id="change-name">Change Name</button>
+      </div>
+      <div id="change-password-form" class="hidden">
+        <h2>Change Password</h2>
+        <form>
+          <label for="current-password">Current Password:</label>
+          <input type="password" id="current-password" name="current-password">
+          <label for="new-password">New Password:</label>
+          <input type="password" id="new-password" name="new-password">
+          <label for="confirm-password">Confirm New Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password">
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+      <div id="change-name-form" class="hidden">
+        <h2>Change Name</h2>
+        <form>
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name">
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name">
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <style>
+        .container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-info {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #008CBA;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #00698C;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+    </style>
+
+</body>
+<script>
+    
+    const button = document.querySelector('#change-password')
+    const button2 = document.querySelector('#change-name')
+    const passwordForm = document.querySelector('#change-password-form')
+    const nameForm = document.querySelector('#change-name-form')
+    button.addEventListener('click',()=>{
+        passwordForm.classList.remove('hidden')
+        nameForm.classList.add('hidden');
+    })
+    
+    button2.addEventListener('click',()=>{
+        nameForm.classList.remove('hidden')
+        passwordForm.classList.add('hidden');
+
+    })
+    </script>
+</html>
