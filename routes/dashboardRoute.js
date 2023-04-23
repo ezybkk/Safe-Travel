@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {
   getDashboard,
+  getHotline,
+  getSpecificHotline,
   getTouristSpot,
   getSpecificTouristSpot,
   getRestaurant,
@@ -20,6 +22,10 @@ const {
   checkNotAuthenticated,
   checkAuthenticated,
 } = require('../controller/loginController');
+
+
+router.get('/dashboardHotline', checkAuthenticated, getHotline);
+router.get('/dashboardHotline/:id', checkAuthenticated, getSpecificHotline);
 
 router.get('/dashboardHotel', checkAuthenticated, getHotel);
 router.get('/dashboardRestaurant', checkAuthenticated, getRestaurant);

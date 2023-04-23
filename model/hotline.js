@@ -21,14 +21,6 @@ const hotlineSchema = new Schema({
         type: String,
         required: true,
     },
-    RedCross: {
-        type: String,
-        required: true,
-    },
-    DREM: {
-        type: String,
-        required: true,
-    },
 
 });
 

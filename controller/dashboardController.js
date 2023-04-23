@@ -8,6 +8,19 @@ const getDashboard = async (req, res) => {
   res.render('dashboard/dashboard', { user });
 };
 
+const getHotline = async (req, res) => {
+  const user = await req.user;
+  const hotlines = await Hotline.find({});
+  res.render('dashboard/dashboardHotline', { user, hotlines });
+};
+
+const getSpecificHotline = async (req, res) => {
+  const { id } = req.params;
+  const user = await req.user;
+  const hotline = await Hotline.findById({ _id: id});
+  res.render('dashboard/dashboardhotlineSpecific', { hotline, user });
+}
+
 const getTouristSpot = async (req, res) => {
   const user = await req.user;
   const spots = await Spot.find({});
@@ -218,6 +231,8 @@ const deleteFavorite = async (req, res) => {
 };
 module.exports = {
   getDashboard,
+  getHotline,
+  getSpecificHotline,
   getTouristSpot,
   getSpecificTouristSpot,
   getRestaurant,

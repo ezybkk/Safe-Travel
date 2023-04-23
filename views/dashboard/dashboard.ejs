@@ -17,23 +17,19 @@
             <li><a href="#" class="side-text"><i class='bx bxs-dashboard' ></i>&nbsp; <span>Dashboard</span> </a></li>
             <li><a href="dashboard/dashboardSpots" class="side-text"><i class='bx bxs-location-plus'></i></i>&nbsp;<span>View Tourist Spot</span></a></li>
             <li><a href="dashboard/dashboardRestaurant" class="side-text"><i class='bx bx-restaurant' ></i></i>&nbsp;<span>View Restaurants</span></a></li>
-            <li><a href="dashboard/dashboardHotel" class="side-text"><i class='bx bxs-hotel' ></i></i>&nbsp;<span>View Rooms/Hotel</span></a></li>
-            <li><a href="" class="side-text"><i class='bx bxs-bell-minus' ></i></i>&nbsp;<span>Emergency Services</span></a> </li>
+            <li><a href="dashboard/dashboardHotel" class="side-text"><i class='bx bxs-hotel' ></i></i>&nbsp;<span>View Hotel</span></a></li>
+            <li><a href="/dashboard/dashboardHotline" class="side-text"><i class='bx bxs-bell-minus' ></i></i>&nbsp;<span>Emergency Services</span></a> </li>
             <li><a href="dashboard/dashboardFavorite" class="side-text"><i class='bx bxs-check-square' ></i>&nbsp;<span>Favorite</span></a> </li>
             <li><a href="" class="side-text"><i class='bx bx-history' ></i>&nbsp; <span>Profile</span></a></li>
-            <li><a href="" class="side-text"><i class='bx bxs-help-circle' ></i>&nbsp;<span>Support/Help</span></a> </li>
             <li><form action="/logout" method="GET"><button type="submit" id="d-button" class="side-text"><i class='bx bxs-log-out' ></i>&nbsp;<span>Logout</form></span></a> </li>
         </ul>
     </div>
     <div class="container">
         <div class="header">
             <div class="nav">
-                <div class="search">
-                    <input type="text" placeholder="Search..">
-                    <button type="submit"><i class='bx bx-search-alt-2' ></i></button>
-                </div>
+                
                 <div class="user">
-                    <p>Hello <%=user.firstName%></p>
+                    <p>Hello, <%=user.firstName%> <%=user.lastName%></p>
                 </div>
             </div>
         </div>
