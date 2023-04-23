@@ -17,12 +17,15 @@ const {
   addToUserFavorite,
   deleteFavorite,
   deleteComment,
+  getProfile,
 } = require('../controller/dashboardController');
 const {
   checkNotAuthenticated,
   checkAuthenticated,
 } = require('../controller/loginController');
 
+
+router.get('/dashboardProfile', checkAuthenticated, getProfile);
 
 router.get('/dashboardHotline', checkAuthenticated, getHotline);
 router.get('/dashboardHotline/:id', checkAuthenticated, getSpecificHotline);

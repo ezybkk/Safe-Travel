@@ -14,22 +14,22 @@
             <h1><i class='bx bxs-plane-alt' ></i>Safe Travel</h1>
         </div>
         <ul>
-            <li><a href="#" class="side-text"><i class='bx bxs-dashboard' ></i>&nbsp; <span>Dashboard</span> </a></li>
-            <li><a href="dashboard/dashboardSpots" class="side-text"><i class='bx bxs-location-plus'></i></i>&nbsp;<span>View Tourist Spot</span></a></li>
-            <li><a href="dashboard/dashboardRestaurant" class="side-text"><i class='bx bx-restaurant' ></i></i>&nbsp;<span>View Restaurants</span></a></li>
-            <li><a href="dashboard/dashboardHotel" class="side-text"><i class='bx bxs-hotel' ></i></i>&nbsp;<span>View Hotel</span></a></li>
-            <li><a href="/dashboard/dashboardHotline" class="side-text"><i class='bx bxs-bell-minus' ></i></i>&nbsp;<span>Emergency Services</span></a> </li>
-            <li><a href="dashboard/dashboardFavorite" class="side-text"><i class='bx bxs-check-square' ></i>&nbsp;<span>Favorite</span></a> </li>
-            <li><a href="" class="side-text"><i class='bx bx-history' ></i>&nbsp; <span>Profile</span></a></li>
-            <li><form action="/logout" method="GET"><button type="submit" id="d-button" class="side-text"><i class='bx bxs-log-out' ></i>&nbsp;<span>Logout</form></span></a> </li>
+          <li><a href="/dashboard" class="side-text"><i class='bx bxs-dashboard' ></i>&nbsp; <span>Dashboard</span> </a></li>
+          <li><a href="/dashboard/dashboardSpots" class="side-text"><i class='bx bxs-location-plus'></i></i>&nbsp;<span>View Tourist Spot</span></a></li>
+          <li><a href="/dashboard/dashboardRestaurant" class="side-text"><i class='bx bx-restaurant' ></i></i>&nbsp;<span>View Restaurants</span></a></li>
+          <li><a href="/dashboard/dashboardHotel" class="side-text"><i class='bx bxs-hotel' ></i></i>&nbsp;<span>View Hotel</span></a></li>
+          <li><a href="/dashboard/dashboardHotline" class="side-text"><i class='bx bxs-bell-minus' ></i></i>&nbsp;<span>Emergency Services</span></a> </li>
+          <li><a href="/dashboard/dashboardFavorite" class="side-text"><i class='bx bxs-check-square' ></i>&nbsp;<span>Favorite</span></a> </li>
+          <li><a href="#" class="side-text"><i class='bx bx-history' ></i>&nbsp; <span>Profile</span></a></li>
+         
         </ul>
     </div>
     <div class="container2">
         <h1>My Profile</h1>
         <div class="profile-info">
-          <p><strong>First Name:</strong> Jane</p>
-          <p><strong>Last Name:</strong> Doe</p>
-          <p><strong>Email:</strong> jane.doe@example.com</p>
+          <p><strong>First Name:</strong> <%=user.firstName%></p>
+          <p><strong>Last Name:</strong> <%=user.lastName%></p>
+          <p><strong>Email:</strong> <%=user.email%></p>
           <button id="change-password">Change Password</button>
           <button id="change-name">Change Name</button>
         </div>

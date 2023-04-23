@@ -8,6 +8,13 @@ const getDashboard = async (req, res) => {
   res.render('dashboard/dashboard', { user });
 };
 
+
+const getProfile = async (req, res) => {
+  const user = await req.user;
+  res.render('dashboard/dashboardProfile', { user });
+};
+
+
 const getHotline = async (req, res) => {
   const user = await req.user;
   const hotlines = await Hotline.find({});
@@ -246,4 +253,5 @@ module.exports = {
   addToUserFavorite,
   deleteFavorite,
   deleteComment,
+  getProfile,
 };
