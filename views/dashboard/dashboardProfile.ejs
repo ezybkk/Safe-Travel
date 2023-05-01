@@ -21,6 +21,7 @@
           <li><a href="/dashboard/dashboardHotline" class="side-text"><i class='bx bxs-bell-minus' ></i></i>&nbsp;<span>Emergency Services</span></a> </li>
           <li><a href="/dashboard/dashboardFavorite" class="side-text"><i class='bx bxs-check-square' ></i>&nbsp;<span>Favorite</span></a> </li>
           <li><a href="#" class="side-text"><i class='bx bx-history' ></i>&nbsp; <span>Profile</span></a></li>
+          <li><form action="/logout" method="GET"><button type="submit" id="d-button" class="side-text"><i class='bx bxs-log-out' ></i>&nbsp;<span>Logout</form></span></a></li>
          
         </ul>
     </div>
@@ -35,23 +36,23 @@
         </div>
         <div id="change-password-form" class="hidden">
           <h2>Change Password</h2>
-          <form>
+          <form method="POST" action="dashboardProfile/users/changepassword/<%= user._id %>?_method=PUT" method="POST">
             <label for="current-password">Current Password:</label>
-            <input type="password" id="current-password" name="current-password">
+            <input type="password" id="oldPassword" name="oldPassword">
             <label for="new-password">New Password:</label>
-            <input type="password" id="new-password" name="new-password">
-            <label for="confirm-password">Confirm New Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password">
+            <input type="password" id="newPassword" name="newPassword">
+            <!-- <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword"> -->
             <button type="submit">Save Changes</button>
           </form>
         </div>
         <div id="change-name-form" class="hidden">
           <h2>Change Name</h2>
-          <form>
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name">
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name">
+          <form method="POST" action="dashboardProfile/users/<%= user._id %>?_method=PUT" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
             <button type="submit">Save Changes</button>
           </form>
         </div>

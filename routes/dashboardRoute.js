@@ -18,11 +18,14 @@ const {
   deleteFavorite,
   deleteComment,
   getProfile,
+  changeName,
+  changePass,
 } = require('../controller/dashboardController');
 const {
   checkNotAuthenticated,
   checkAuthenticated,
 } = require('../controller/loginController');
+
 
 
 router.get('/dashboardProfile', checkAuthenticated, getProfile);
@@ -51,6 +54,11 @@ router.post(
   checkAuthenticated,
   postHotelComment
 );
+
+router.post('/dashboardProfile/users/changepassword/:id', checkAuthenticated, changePass);
+
+router.post('/dashboardProfile/users/:id', checkAuthenticated, changeName);
+
 router.post(
   '/dashboardRestaurant/comment/:id',
   checkAuthenticated,
