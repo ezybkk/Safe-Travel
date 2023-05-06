@@ -152,23 +152,25 @@ button[type="submit"] {
 }
 body {
     min-height: 100vh;
+    background: #d8d7d7;
 }
 a {
     text-decoration: none;
 }
 
 #d-button{
-    background-color:#0073e5;
-    border-color: #0073e5 transparent;
-    width: 200px;
-    height: 50px;
-    text-align: left;
+    background-color:#0000;
+    border-color: #0000 transparent;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+
     
 }
 #d-button:hover {
     color: #000;
     background: white;
-    border-color: white;
+    border-color: black;
 }
 
 .side-text{
@@ -217,28 +219,34 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: #0073e5;
+    background: #d8d7d7;
     width: 20vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid black;
 }
 .side-menu .brand-name {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    background: #0073e5 !important;
 }
+
 .side-menu li {
     font-size: 24px;
-    padding: 10px 40px;
+    padding: 15px 40px;
     color: white;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: #f05462;
+    background: darkgray;
+    /* color: #f05462; */
+    color: gray;
 }
 
 

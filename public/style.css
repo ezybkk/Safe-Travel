@@ -6,8 +6,9 @@
 
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(images/banner1.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50%, rgba(0,0,0,0.8)50%), url(images/banner1.jpg);
     /* background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(images/banner1.jpg); */
+    /* background: linear-gradient(to top, rgba(0,0,0,0.8)50%, rgba(0,0,0,0.8)50%); */
     background-position: center;
     background-size: cover;
     height: 109vh;
@@ -98,8 +99,8 @@ ul li a:hover{
     height: 380px;
     background: linear-gradient(to top, rgba(0,0,0,0.8)50%, rgba(0,0,0,0.8)50%);
     position: absolute;
-    top: 50px;
-    left: 1170px;
+    top: -20px;
+    left: 970px;
     border-radius: 10px ;
     padding: 25px;
 }

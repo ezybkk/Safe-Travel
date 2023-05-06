@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Restaurant</title>
 </head>
@@ -35,25 +35,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="cards">
-                <div class="card2">
-                    <div class="box">
-                        <h1>Viewing Restaurants</h1>
-                    </div>
-                    
-                </div>
-                <!-- <div class="card2">
-                    <div class="box">
-                        You can leave a comment in this section once you've selected a place.
-                        <form>
-                            <label>Leave a comment:</label>
-                            <input type="text" name="comment" id="comment">
-                        </form>
-                    </div>
-
-                </div> -->
-               
-            </div>
+            
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
@@ -68,16 +50,28 @@
                         </tr>
                         
                             <% for(let i=0; i<restaurants.length; i++) {%>
-                                <tr>
-                                <td><%= restaurants[i].Location %></td>
-                                <td><%= restaurants[i].Name %></td>
-                                <td><a href="/dashboard/dashboardRestaurant/<%=restaurants[i]._id%>">Click here</a></td>
-                                <td>
-                                    <form action="/dashboard/dashboardFavorites/<%=restaurants[i]._id%>/Restaurants/<%=restaurants[i].Location%>/<%=restaurants[i].Name%>" method="POST"><button>Add to Favorite</button>
-                                    </form>
-                                </td>
-                                </tr>
-                             <% } %>
+                                <% if(i % 2 == 0){ %>
+                                    <tr>
+                                        <td class="even"><%= restaurants[i].Location %></td>
+                                        <td class="even"><%= restaurants[i].Name %></td>
+                                        <td class="even"><a style="color: black;" href="/dashboard/dashboardRestaurant/<%=restaurants[i]._id%>">Click here</a></td>
+                                        <td class="even">
+                                            <form action="/dashboard/dashboardFavorites/<%=restaurants[i]._id%>/Restaurants/<%=restaurants[i].Location%>/<%=restaurants[i].Name%>" method="POST"><button>Add to Favorite</button>
+                                            </form>
+                                        </td>
+                                        </tr>
+                                     <% }else{ %>
+                                        <tr>
+                                            <td><%= restaurants[i].Location %></td>
+                                            <td><%= restaurants[i].Name %></td>
+                                            <td><a style="color: black" href="/dashboard/dashboardRestaurant/<%=restaurants[i]._id%>">Click here</a></td>
+                                            <td>
+                                                <form action="/dashboard/dashboardFavorites/<%=restaurants[i]._id%>/Restaurants/<%=restaurants[i].Location%>/<%=restaurants[i].Name%>" method="POST"><button>Add to Favorite</button>
+                                                </form>
+                                            </td>
+                                            </tr>
+                                         <% } %>
+                                         <% } %>
                         
                     </table>
                 </div>
@@ -111,8 +105,8 @@ body {
 #d-button{
     background-color:#0000;
     border-color: #0000 transparent;
-    width: 200px;
-    height: 50px;
+    width: 100px;
+    height: 35px;
     text-align: center;
 
     
@@ -127,6 +121,7 @@ body {
     text-decoration: none;
     color: #000;
 }
+
 
 
 a {
@@ -176,30 +171,46 @@ td {
     text-align: left;
     padding: 8px;
 }
+
+td{
+    padding: 15px;
+}
+
+
 .side-menu {
     position: fixed;
-    background: #0073e5;
+    background: #d8d7d7;
     width: 20vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid black;
 }
 .side-menu .brand-name {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
+    background: #0073e5 !important;
 }
+
+.even{
+    background: gray !important;
+}
+
 .side-menu li {
     font-size: 24px;
-    padding: 10px 40px;
+    padding: 15px 40px;
     color: white;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: #f05462;
+    background: darkgray;
+    /* color: #f05462; */
+    color: gray;
 }
 .container {
     position: absolute;
@@ -214,7 +225,7 @@ td {
     right: 0;
     width: 80vw;
     height: 10vh;
-    background: white;
+    background: #F5F5F5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -275,28 +286,17 @@ td {
     position: relative;
     margin-top: 10vh;
     min-height: 90vh;
-    background: #f1f1f1;
+    background: #d8d7d7;
 }
 .container .content .cards {
     padding: 20px 15px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .container .content .cards .card {
-    width: 500px;
-    height: 150px;
-    background: white;
-    margin: 20px 10px;
-    display: flex;
-    align-items: flex-start;
-    /* justify-content: space-around; */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.container .content .cards .card2 {
-    width: 500px;
+    width: 250px;
     height: 150px;
     background: white;
     margin: 20px 10px;
@@ -311,11 +311,12 @@ td {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
+    background-color: #d8d7d7;
 }
 .container .content .content-2 .recent-payments {
-    min-height: 100vh;
+    min-height: 50vh;
     flex: 5;
-    background: white;
+    background-color: #F0F0F0;
     margin: 0 25px 25px 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
@@ -324,7 +325,7 @@ td {
 .container .content .content-2 .new-students {
     flex: 2;
     background: white;
-    min-height: 100vh;
+    min-height: 50vh;
     margin: 0 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;

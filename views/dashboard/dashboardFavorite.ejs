@@ -36,12 +36,12 @@
         </div>
         <div class="content">
             <div class="cards">
-                <div class="card2">
+                <!-- <div class="card2">
                     <div class="box">
                         <h1>Viewing Favorites</h1>
                     </div>
                     
-                </div>
+                </div> -->
                
             </div>
             <div class="content-2">
@@ -58,14 +58,25 @@
                         </tr>
                         <% for( let index = 0; index < user.favorite.length; index++ ) { %>
                             <% if (user.favorite[index].category=='Spots') { %>
+                                <% if(index % 2 == 0){ %>
+                                    <tr>
+                                        <td class="even"><%=user.favorite[index].location%></td>
+                                        <td class="even"><%=user.favorite[index].name %></td>
+                                        <td class="even"><a style="color: black" href="/dashboard/dashboardSpots/<%=user.favorite[index].id%>">View Details</a></td>
+                                        <td class="even"><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                            <button>Delete</button>
+                                        </form></td>
+                                    </tr>
+                            <% }else{ %>
                                 <tr>
                                     <td><%=user.favorite[index].location%></td>
                                     <td><%=user.favorite[index].name %></td>
-                                    <td><a href="/dashboard/dashboardSpots/<%=user.favorite[index].id%>">View Details</a></td>
+                                    <td><a style="color: black" href="/dashboard/dashboardSpots/<%=user.favorite[index].id%>">View Details</a></td>
                                     <td><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
                                         <button>Delete</button>
                                     </form></td>
                                 </tr>
+                                <% } %>        
                             <% } %>
                             
                         <% } %>
@@ -85,14 +96,25 @@
                         </tr>
                         <% for( let index = 0; index < user.favorite.length; index++ ) { %>
                             <% if (user.favorite[index].category=='Restaurants') { %>
-                                <tr>
-                                    <td><%=user.favorite[index].location%></td>
-                                    <td><%=user.favorite[index].name %></td>
-                                    <td><a href="/dashboard/dashboardRestaurant/<%=user.favorite[index].id%>">View Details</a></td>
-                                    <td><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
-                                        <button>Delete</button>
-                                    </form></td>
-                                </tr>
+                                <% if(index % 2 == 0){ %>
+                                    <tr>
+                                        <td class="even"><%=user.favorite[index].location%></td>
+                                        <td class="even"><%=user.favorite[index].name %></td>
+                                        <td class="even"><a style="color:black" href="/dashboard/dashboardRestaurant/<%=user.favorite[index].id%>">View Details</a></td>
+                                        <td class="even"><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                            <button>Delete</button>
+                                        </form></td>
+                                    </tr>
+                                <% }else{ %>
+                                    <tr>
+                                        <td><%=user.favorite[index].location%></td>
+                                        <td><%=user.favorite[index].name %></td>
+                                        <td><a style="color:black" href="/dashboard/dashboardRestaurant/<%=user.favorite[index].id%>">View Details</a></td>
+                                        <td><form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                            <button>Delete</button>
+                                        </form></td>
+                                    </tr>
+                                    <% } %>    
                             <% } %>
                             
                         <% } %>
@@ -112,17 +134,31 @@
                         </tr>
                         <% for( let index = 0; index < user.favorite.length; index++ ) { %>
                             <% if (user.favorite[index].category=='Hotels') { %>
-                                <tr>
-                                    <td><%=user.favorite[index].location%></td>
-                                    <td><%=user.favorite[index].name %></td>
-                                    <td><a href="/dashboard/dashboardHotel/<%=user.favorite[index].id%>">View Details</a></td>
-                                    <td>
-                                        <form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
-                                            <button>Delete</button>
-                                        </form>
-                                        
-                                    </td>
-                                </tr>
+                                <% if(index % 2 == 0){ %>
+                                    <tr>
+                                        <td class="even"><%=user.favorite[index].location%></td>
+                                        <td class="even"><%=user.favorite[index].name %></td>
+                                        <td class="even"><a style="color: black" href="/dashboard/dashboardHotel/<%=user.favorite[index].id%>">View Details</a></td>
+                                        <td class="even">
+                                            <form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                                <button>Delete</button>
+                                            </form>
+                                            
+                                        </td>
+                                    </tr>
+                                <% }else { %>
+                                    <tr>
+                                        <td><%=user.favorite[index].location%></td>
+                                        <td><%=user.favorite[index].name %></td>
+                                        <td><a style="color: black" href="/dashboard/dashboardHotel/<%=user.favorite[index].id%>">View Details</a></td>
+                                        <td>
+                                            <form action="/dashboard/dashboardFavorites/<%=user.favorite[index].id%>" method="POST">
+                                                <button>Delete</button>
+                                            </form>
+                                            
+                                        </td>
+                                    </tr>
+                                <% } %>    
                             <% } %>
                             
                         <% } %>
@@ -147,26 +183,11 @@ body {
     min-height: 100vh;
 }
 
-.container .content .cards .card3 {
-    width: 500px;
-    height: 150px;
-    background: white;
-    margin: 20px 10px;
-    display: flex;
-    align-items: flex-start;
-    /* justify-content: space-around; */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-#comment{
-    width: 480px;
-    height: 150px;
-}
 #d-button{
     background-color:#0000;
     border-color: #0000 transparent;
-    width: 200px;
-    height: 50px;
+    width: 100px;
+    height: 35px;
     text-align: center;
 
     
@@ -181,6 +202,7 @@ body {
     text-decoration: none;
     color: #000;
 }
+
 
 
 a {
@@ -230,30 +252,46 @@ td {
     text-align: left;
     padding: 8px;
 }
+
+td{
+    padding: 15px;
+}
+
+
 .side-menu {
     position: fixed;
-    background: #0073e5;
+    background: #d8d7d7;
     width: 20vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid black;
 }
 .side-menu .brand-name {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
+    background: #0073e5 !important;
 }
+
+.even{
+    background: gray !important;
+}
+
 .side-menu li {
     font-size: 24px;
-    padding: 10px 40px;
+    padding: 15px 40px;
     color: white;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: #f05462;
+    background: darkgray;
+    /* color: #f05462; */
+    color: gray;
 }
 .container {
     position: absolute;
@@ -268,7 +306,7 @@ td {
     right: 0;
     width: 80vw;
     height: 10vh;
-    background: white;
+    background: #F5F5F5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,28 +367,17 @@ td {
     position: relative;
     margin-top: 10vh;
     min-height: 90vh;
-    background: #f1f1f1;
+    background: #d8d7d7;
 }
 .container .content .cards {
     padding: 20px 15px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .container .content .cards .card {
-    width: 500px;
-    height: 150px;
-    background: white;
-    margin: 20px 10px;
-    display: flex;
-    align-items: flex-start;
-    /* justify-content: space-around; */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.container .content .cards .card2 {
-    width: 500px;
+    width: 250px;
     height: 150px;
     background: white;
     margin: 20px 10px;
@@ -365,11 +392,12 @@ td {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
+    background-color: #d8d7d7;
 }
 .container .content .content-2 .recent-payments {
-    min-height: 100vh;
+    min-height: 50vh;
     flex: 5;
-    background: white;
+    background-color: #F0F0F0;
     margin: 0 5px 5px 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
@@ -378,7 +406,7 @@ td {
 .container .content .content-2 .new-students {
     flex: 2;
     background: white;
-    min-height: 100vh;
+    min-height: 50vh;
     margin: 0 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;

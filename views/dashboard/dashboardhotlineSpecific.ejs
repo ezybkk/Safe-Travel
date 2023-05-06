@@ -33,15 +33,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="cards">
-                <div class="card2">
-                    <div class="box">
-                        <h1>Emergency Services</h1>
-                    </div>
-                    
-                </div>
-               
-            </div>
+            
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
@@ -76,7 +68,7 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f7f7f7;
+  background-color: #F0F0F0;
   
 }
 
@@ -124,14 +116,14 @@ body {
 }
 
 #comment{
-    width: 480px;
-    height: 150px;
+    width: 280px;
+    height: 50px;
 }
 #d-button{
     background-color:#0000;
     border-color: #0000 transparent;
-    width: 200px;
-    height: 50px;
+    width: 100px;
+    height: 35px;
     text-align: center;
 
     
@@ -146,7 +138,6 @@ body {
     text-decoration: none;
     color: #000;
 }
-
 
 
 a {
@@ -198,28 +189,34 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: #0073e5;
+    background: #d8d7d7;
     width: 20vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid black;
 }
 .side-menu .brand-name {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+    background: #0073e5 !important;
 }
+
 .side-menu li {
     font-size: 24px;
-    padding: 10px 40px;
+    padding: 15px 40px;
     color: white;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: #f05462;
+    background: darkgray;
+    /* color: #f05462; */
+    color: gray;
 }
 .container {
     position: absolute;
@@ -301,7 +298,8 @@ td {
     padding: 20px 15px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    justify-content:flex-end;
     flex-wrap: wrap;
 }
 
@@ -335,21 +333,34 @@ td {
 .container .content .content-2 .recent-payments {
     min-height: 100vh;
     flex: 5;
-    background: white;
+    background: #F0F0F0;
     margin: 0 25px 25px 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
+
+.container .content .content-2 .recent-payments .box{
+    width: 100px;
+    padding-top: 100px;
+}
+
+.container .content .content-2 .recent-payments .box button{
+    
+    padding: 10px;
+    margin-top: 10px;
+}
 .container .content .content-2 .new-students {
     flex: 2;
-    background: white;
+    background: #F0F0F0;
     min-height: 100vh;
     margin: 0 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
+    overflow-y: scroll; /* add this line */
+  max-height: 500px; /* add this line */
 }
 .container .content .content-2 .new-students table td:nth-child(1) img {
     height: 40px;
