@@ -58,10 +58,10 @@
                     <div class="title">
                         <h2><%=hotel.Name%></h2>
                     </div>
-                    <h4><br>Name:</h4> <%=hotel.Name%>
-                    <h4><br>Location:</h4> <%=hotel.Location%>
-                    <p><br><h4>Details:</h4> <%=hotel.Details%></p>
-                    <p><br><h4>Link:</h4> <a href="<%=hotel.Link%>" target="_blank">*** SEE ATTACHMENT ***</a></p>
+                    <h4 class="event">Name:</h4><br><%=hotel.Name%><br><br>
+                    <h4 class="event">Location:</h4><br><%=hotel.Location%>
+                    <p><br><h4 class="event">Details:</h4><br><%=hotel.Details%></p>
+                    <p><br><h4 class="event">Additional Info:</h4><br>You may check reviews, photos and for more information. You may click this<a href="<%=hotel.Link%>" target="_blank">LINK</a></p>
                 
                     <br><div class="box">
                         <form method="POST" action="/dashboard/dashboardHotel/comment/<%=hotel._id%>">
@@ -106,6 +106,13 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+.event{
+    background: rgb(211, 209, 209) !important;
+    padding: 2px;
+    margin: 10px;
+}
+
 .comment{
     padding: 5px;
     margin: 10px;

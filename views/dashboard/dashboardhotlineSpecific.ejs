@@ -39,10 +39,10 @@
                     <div class="title">
                         <h2><%=hotline.Location%></h2>
                     </div>
-                    <h4><br>Location:</h4><%=hotline.Location%>
-                    <h4><br>Fire Department:</h4> <%=hotline.BFP%>
-                    <p><br><h4>Police Department:</h4> <%=hotline.Police%></p>
-                    <p><br><h4>Hospital/Ambulance:</h4> <%=hotline.Hospital%></p>
+                    <h4 class="event">Location:</h4><br><%=hotline.Location%><br><br>
+                    <h4 class="event">Fire Department:</h4><br><%=hotline.BFP%>
+                    <p><br><h4 class="event">Police Department:</h4><br><%=hotline.Police%></p>
+                    <p><br><h4 class="event">Hospital/Ambulance:</h4><br><%=hotline.Hospital%></p>
                 </div>
                 
             </div>
@@ -56,6 +56,13 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+.event{
+    background: rgb(211, 209, 209) !important;
+    padding: 2px;
+    margin: 10px;
+}
+
 .comment{
     padding: 5px;
     margin: 10px;

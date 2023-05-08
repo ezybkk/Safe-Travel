@@ -58,12 +58,13 @@
                     <div class="title">
                         <h2><%=restaurant.Name%></h2>
                     </div>
-                    <h4><br>Name:</h4> <%=restaurant.Name%>
-                    <h4><br>Location:</h4> <%=restaurant.Location%>
-                    <p><br><h4>Details:</h4> <%=restaurant.Details%></p>
-                    <p><br><h4>Link:</h4> <a href="<%=restaurant.Link%>" target="_blank">*** SEE ATTACHMENT ***</a></p>
+                    <h4 class="event">Name:</h4><br><%=restaurant.Name%><br><br>
+                    <h4 class="event">Location:</h4><br><%=restaurant.Location%><br>
+                    <p><br><h4 class="event">Details:</h4><br><%=restaurant.Details%></p>
+                    <p><br><h4 class="event">Additional Info:</h4><br>You may check reviews, photos and for more information. You may click this <a href="<%=restaurant.Link%>" target="_blank">LINK.</a></p>
                 
                     <br><div class="box">
+                        <p>Comment</p>
                         <form method="POST" action="/dashboard/dashboardRestaurant/comment/<%=restaurant._id%>">
                             <input type="text" name="comment" id="comment" placeholder="Leave your comment here">
                             <button>Submit</button>
@@ -106,6 +107,14 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+
+.event{
+    background: rgb(211, 209, 209) !important;
+    padding: 2px;
+    margin: 10px;
+}
+
 .comment{
     padding: 5px;
     margin: 10px;

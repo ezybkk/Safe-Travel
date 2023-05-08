@@ -53,10 +53,10 @@
                     <div class="title">
                         <h2><%=spot.Name%></h2>
                     </div>
-                    <h4><br>Name:</h4><%=spot.Name%>
-                    <h4><br>Location:</h4> <%=spot.Location%>
-                    <p><br><h4>Details:</h4> <%=spot.Details%></p>
-                    <p><br><h4>Link:</h4> <a href="<%=spot.Link%>" target="_blank">*** SEE ATTACHMENT ***</a></p>
+                    <h4 class="event">Name:</h4><br><%=spot.Name%><br><br>
+                    <h4 class="event">Location:</h4><br><%=spot.Location%><br><br>
+                    <p><br><h4 class="event">Details:</h4><br><%=spot.Details%></p>
+                    <p><br><h4 class="event">Additional Info:</h4><br>You may check reviews, photos and for more information. You may click this <a href="<%=spot.Link%>" target="_blank">LINK</a></p>
                     
                     
                     <br><div class="box">
@@ -105,6 +105,13 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+.event{
+    background: rgb(211, 209, 209) !important;
+    padding: 2px;
+    margin: 10px;
+}
+
 .comment{
     padding: 5px;
     margin: 10px;
