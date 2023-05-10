@@ -60,6 +60,9 @@
                     
                     
                     <br><div class="box">
+                        <% if (messages.error) { %>
+                            <div class="alert alert-danger" style="color: red;"><%= messages.error %></div>
+                          <% } %>
                         <form method="POST" action="/dashboard/dashboardSpots/comment/<%=spot._id%>">
                             <input type="text" name="comment" id="comment" placeholder="Leave your comment here">
                             <button>Submit</button>

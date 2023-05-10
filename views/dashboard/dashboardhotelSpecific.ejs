@@ -64,6 +64,9 @@
                     <p><br><h4 class="event">Additional Info:</h4><br>You may check reviews, photos and for more information. You may click this<a href="<%=hotel.Link%>" target="_blank">LINK</a></p>
                 
                     <br><div class="box">
+                        <% if (messages.error) { %>
+                            <div class="alert alert-danger" style="color: red;"><%= messages.error %></div>
+                          <% } %>
                         <form method="POST" action="/dashboard/dashboardHotel/comment/<%=hotel._id%>">
                             <input type="text" name="comment" id="comment" placeholder="Leave your comment here">
                             <button>Submit</button>

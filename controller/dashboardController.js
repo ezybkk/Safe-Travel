@@ -220,10 +220,38 @@ const getFavorite = async (req, res) => {
   res.render('dashboard/dashboardFavorite', { user });
 };
 
+// const postSpotComment = async (req, res) => {
+//   const { id } = req.params;
+//   const { comment } = req.body;
+//   const user = await req.user;
+//   await Spot.updateOne(
+//     { _id: id },
+//     {
+//       $push: {
+//         Comments: [
+//           {
+//             message: comment,
+//             userId: user._id,
+//             userName: `${user.firstName} ${user.lastName}`,
+//             date: new Date().toLocaleString(),
+//           },
+//         ],
+//       },
+//     }
+//   );
+//   res.redirect(`/dashboard/dashboardSpots/${id}`);
+// };
+
 const postSpotComment = async (req, res) => {
   const { id } = req.params;
   const { comment } = req.body;
   const user = await req.user;
+  
+  if (!comment) { // check if comment field is empty or falsy
+    req.flash('error', 'Comment is required');
+    return res.redirect(`/dashboard/dashboardSpots/${id}`);
+  }
+  
   await Spot.updateOne(
     { _id: id },
     {
@@ -241,10 +269,40 @@ const postSpotComment = async (req, res) => {
   );
   res.redirect(`/dashboard/dashboardSpots/${id}`);
 };
+
+
+// const postRestaurantComment = async (req, res) => {
+//   const { id } = req.params;
+//   const { comment } = req.body;
+//   const user = await req.user;
+//       await Restaurant.updateOne(
+//         { _id: id },
+//         {
+//           $push: {
+//             Comments: [
+//               {
+//                 message: comment,
+//                 userId: user._id,
+//                 userName: `${user.firstName} ${user.lastName}`,
+//                 date: new Date().toLocaleString(),
+//               },
+//             ],
+//           },
+//         }
+//       );
+//   res.redirect(`/dashboard/dashboardRestaurant/${id}`);
+// };
+
 const postRestaurantComment = async (req, res) => {
   const { id } = req.params;
   const { comment } = req.body;
   const user = await req.user;
+
+  if (!comment) { // check if comment field is empty or falsy
+    req.flash('error', 'Comment is required');
+    return res.redirect(`/dashboard/dashboardRestaurant/${id}`);
+  }
+
   await Restaurant.updateOne(
     { _id: id },
     {
@@ -262,10 +320,17 @@ const postRestaurantComment = async (req, res) => {
   );
   res.redirect(`/dashboard/dashboardRestaurant/${id}`);
 };
+
+
 const postHotelComment = async (req, res) => {
   const { id } = req.params;
   const { comment } = req.body;
   const user = await req.user;
+
+  if (!comment) { // check if comment field is empty or falsy
+    req.flash('error', 'Comment is required');
+    return res.redirect(`/dashboard/dashboardHotel/${id}`);
+  }
   await Hotel.updateOne(
     { _id: id },
     {
