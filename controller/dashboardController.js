@@ -128,13 +128,56 @@ const changeName = async (req, res) => {
 
 
 
+// const changePass = async (req, res) => {
+//   const { id } = req.params;
+//   const { oldPassword, newPassword } = req.body;
+
+//   try {
+//     if (!oldPassword || !newPassword) {
+//       req.flash('error', 'Current and new password is required');
+//       return res.redirect('/dashboard/dashboardProfile');
+//     }
+
+//     const user = await User.findById(id);
+
+//     if (!user) {
+//       req.flash('error', 'User not found');
+//       return res.redirect('/dashboard/dashboardProfile');
+//     }
+
+//     const isMatch = await bcrypt.compare(oldPassword, user.password);
+//     if (!isMatch) {
+//       req.flash('error', 'Current password is incorrect');
+//       return res.redirect('/dashboard/dashboardProfile');
+//     }
+
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+//     user.password = hashedPassword;
+//     await user.save();
+
+//     req.flash('success', 'Password updated successfully');
+//     res.redirect('/dashboard/dashboardProfile');
+//   } catch (error) {
+//     console.error(error);
+//     req.flash('error', 'Error updating password');
+//     res.redirect('/dashboard/dashboardProfile');
+//   }
+// };
+
 const changePass = async (req, res) => {
   const { id } = req.params;
-  const { oldPassword, newPassword } = req.body;
+  const { oldPassword, newPassword, confirmPassword } = req.body;
 
   try {
-    if (!oldPassword || !newPassword) {
-      req.flash('error', 'Current and new password is required');
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      req.flash('error', 'Current, new password, and confirm password are required');
+      return res.redirect('/dashboard/dashboardProfile');
+    }
+
+    if (newPassword !== confirmPassword) {
+      req.flash('error', 'New password and confirm password do not match');
       return res.redirect('/dashboard/dashboardProfile');
     }
 
